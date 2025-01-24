@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--사진을 클릭했을 때 등장하는 사진 뷰어-->
+    <div class="viewer">
+        <div class="click-ban">
+        </div>
+        <div class="photo-viewer">
+            <button class="exitbtn" onclick="closeViewer()">X</button>
+            <div class="photo-area">
+                <img id="now-photo" src="data/films/0/0.jpg" width="100%" height="100%">
+            </div>
+        </div>
+    </div>
+    <!--끝-->
+
+    <div class="film-list">
+        <!-- 필름 케이스들이 JavaScript로 동적으로 추가됩니다 -->
+    </div>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

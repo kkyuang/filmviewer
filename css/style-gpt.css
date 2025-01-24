@@ -1,0 +1,84 @@
+:root {
+    --base-height: 180px;
+    --aspect-ratio: 76 / 70;
+    --photo-aspect-ratio: 74 / 70;
+    --photo-count: 36;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.film-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+.film-case {
+    flex: 0 1 calc(150px);
+    max-height: 250px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.film-case img {
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+.film-case.expanded {
+    flex-basis: 100%;
+}
+
+.film-spreaded {
+    display: none;
+    overflow-x: auto;
+}
+
+.film-case.expanded .film-spreaded {
+    display: block;
+}
+
+.scroll-div {
+    display: flex;
+    width: calc((var(--base-height) * var(--aspect-ratio) * var(--photo-count)) + 100%);
+    flex-wrap: nowrap;
+    gap: calc(var(--base-height) * (2 / 70));
+}
+
+.film-background {
+    height: var(--base-height);
+    width: calc(var(--base-height) * var(--aspect-ratio) * var(--photo-count));
+    background-image: url('../data/filmreel.png');
+    background-size: contain;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.film-end {
+    height: var(--base-height);
+    background-image: url('../data/filmreel-end.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 196px;
+}
+
+.photo {
+    width: calc(var(--base-height) * var(--photo-aspect-ratio));
+    height: calc(var(--base-height) * (50 / 70));
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.photo:hover {
+    transform: scale(1.1);
+    
+}

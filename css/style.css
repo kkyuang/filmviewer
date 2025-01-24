@@ -1,0 +1,162 @@
+:root {
+    --base-height: 180px;
+    /* 필름 높이를 기준으로 한 기본 단위 */
+    --aspect-ratio: 76 / 70;
+    /* 비율 */
+    --photo-aspect-ratio: 74 / 70;
+    /* 사진 비율 */
+    --photo-count: 36;
+    /* 기본 사진 개수 (초기값) */
+}
+
+
+
+.film-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.film-case {
+    margin: 20px;
+    width: 150px;
+    height: 250px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.film-case.expanded {
+    flex-basis: 100%;
+}
+
+.film-spreaded {
+    flex-grow: 1;
+    overflow-x: scroll;
+}
+
+.scroll-div {
+    width: calc((var(--base-height) * var(--aspect-ratio) * (var(--photo-count))) + 100%);
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.film-background {
+    height: var(--base-height);
+    width: calc(var(--base-height) * var(--aspect-ratio) * var(--photo-count));
+    margin: 40px 0 30px;
+    background-image: url(../data/filmreel.png);
+    background-size: contain;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.film-end {
+    height: 180px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    background-image: url(../data/filmreel-end.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 196px;
+
+}
+
+.photo {
+    width: calc(var(--base-height) * var(--photo-aspect-ratio));
+    height: calc(var(--base-height) * (50 / 70));
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: calc(var(--base-height) * (10.5 / 70));
+    margin-left: calc(var(--base-height) * (2 / 70));
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo-viewer {
+    position: absolute;
+    padding: 30px 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.click-ban{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+}
+
+.photo-area {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 100vh;
+}
+
+.exitbtn{
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    font-size: 20px;
+    color: #fff;
+    background: none;
+    border: none;
+    transition: transform 0.2s ease-in-out;
+}
+/* Hover 효과 */
+.exitbtn:hover {
+    transform: scale(1.1);
+}
+
+.viewer{
+    display: none;
+}
+
+.film-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* 줄바꿈을 허용 */
+    justify-content: start;
+    /* 기본적으로 왼쪽 정렬 */
+    gap: 20px;
+    /* 동일한 간격 설정 */
+    padding: 20px;
+}
+
+.film-case {
+    flex: 0 1 calc(150px);
+    /* 최소 크기와 최대 크기를 동일하게 설정 */
+    max-height: 250px;
+}
+
+.film-case img {
+    display: block;
+    width: 150px;
+    height: auto;
+    background-color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover 효과 */
+.film-case img:hover {
+    transform: scale(1.05);
+}
+/* Hover 효과 */
+.photo:hover {
+    transform: scale(1.05);
+    z-index: 0;
+}
+
+
+/* 한 줄만 있을 때 최소 간격으로 배치 */
+.film-list:only-child {
+    justify-content: start;
+    gap: 10px;
+    /* 최소 간격 */
+}
