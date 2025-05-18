@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 const viewer = document.getElementsByClassName('viewer')[0]
                                 document.getElementById('now-photo').src = `data/films/${film.id}/${i}.jpg`;
                                 viewer.style.display = 'block';
+                                viewer.style.position= 'fixed';
                                 opening = true
                                 
                                 viewer.style.opacity = 0;
