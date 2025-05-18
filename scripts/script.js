@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     for (let i = 0; i < film.images; i++) {
                         const photo = document.createElement('div');
                         photo.classList.add('photo');
-                        photo.style.backgroundImage = `url(data/films/${film.id}/${i}.jpg)`;
+                        photo.style.backgroundImage = `url(data/thumbnails/${film.id}/${i}.jpg)`;
 
                         //사진 클릭시 뷰어 보여주기
                         photo.addEventListener('click', ()=>{
